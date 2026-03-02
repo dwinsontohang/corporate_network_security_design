@@ -12,10 +12,10 @@ The infrastructure is validated through testing and verification of firewall rul
 The physical infrastructure is structured around a two-tier hierarchical model comprising the Distribution and Access layers, ensuring modularity, scalability, and redundancy for seamless network performance and future expansion.
 
 1. Distribution Layer
-At the core of the network, the Distribution Layer serves as the aggregation point for inter-VLAN communication and traffic routing. The implementation utilises Cisco Catalyst 2960 Switches, known for their high reliability, cost-effectiveness, and efficient Layer 2 switching.
+   At the core of the network, the Distribution Layer serves as the aggregation point for inter-VLAN communication and traffic routing. The implementation utilises Cisco Catalyst 2960 Switches, known for their high reliability, cost-effectiveness, and efficient Layer 2 switching.
 
-2. Access Layer
-The Access Layer is designed to provide connectivity for end-user devices, ensuring efficient and reliable access to network resources. Each floor is equipped with Cisco Catalyst 2960 Switches, which serve as the primary connection point for:
+4. Access Layer
+   The Access Layer is designed to provide connectivity for end-user devices, ensuring efficient and reliable access to network resources. Each floor is equipped with Cisco Catalyst 2960 Switches, which serve as the primary connection point for:
     * End-user devices such as desktops and laptops
     * Wireless Access Points to provide seamless Wi-Fi coverage
     * Departmental segmentation, ensuring localised traffic management and reduced congestion
@@ -27,8 +27,7 @@ Adopting a hierarchical network design brings several important advantages. By s
 To enhance security and performance, the network is segmented into VLANs, each serving a specific function:
 
 1. Departmental VLANs
-
-Each department operates within a dedicated VLAN, preventing unnecessary broadcast traffic and ensuring efficient resource allocation:
+   Each department operates within a dedicated VLAN, preventing unnecessary broadcast traffic and ensuring efficient resource allocation:
 
     * Sales & Marketing – 30 users
 
@@ -40,9 +39,8 @@ Each department operates within a dedicated VLAN, preventing unnecessary broadca
 
     * Finance – 25 users
 
-2. Functional VLANs
-
-In addition to departmental segmentation, key operational areas have dedicated VLANs to streamline performance and security:
+3. Functional VLANs
+   In addition to departmental segmentation, key operational areas have dedicated VLANs to streamline performance and security:
 
     * Server VLAN – Hosts critical infrastructure such as File, Web, DHCP, and AAA servers.
 
@@ -50,8 +48,10 @@ In addition to departmental segmentation, key operational areas have dedicated V
 
     * Management VLAN – Reserved exclusively for IT administrators to manage network devices securely.
 
+
 **Network infrastructure and architecture diagram**
 <img width="993" height="583" alt="image" src="https://github.com/user-attachments/assets/5b1307e0-f152-427c-b324-ae04402db13e" />
+
 
 **Logical Topology**
 <img width="1147" height="684" alt="image" src="https://github.com/user-attachments/assets/5b98a6ee-0614-4cf3-bb49-76814152e598" />
@@ -61,6 +61,7 @@ A star topology provides a centralised approach to network management, allowing 
 **Subnetting**
 
 To ensure efficient network segmentation, enhance security, and optimise resource allocation, the 172.16.10.0/24 network has been divided into distinct subnets based on departmental functions and operational needs. Each subnet is assigned a specific IP range to accommodate the required number of devices while minimising wasted address space. This structured approach ensures efficient address management, improved performance, and scalability for future expansion.
+
 
 **Subnetting for IP allocation**
 
@@ -78,68 +79,68 @@ To ensure efficient network segmentation, enhance security, and optimise resourc
 
 A well-structured IP addressing scheme optimises address space while ensuring network performance, security, and scalability. Subnets are allocated based on departmental needs, enabling efficient resource distribution. VLANs and subnet segmentation minimise broadcast traffic, enhance security by isolating sensitive data, and simplify management. Dedicated subnets for the DMZ and server network keep external traffic separate, while a management network ensures secure device administration.
 
-2 Equipment Selection and Placement
-2.1 Routers
+
+### 2 Equipment Selection and Placement ###
+
+**Routers**
+
 The Cisco ISR 4331 is deployed as the ISP router and internet, managing WAN connectivity. Meanwhile, the Cisco 2911 serves as the perimeter or internet-facing router, handling VPN termination, NAT, security enforcement, and traffic filtering between the internal network and external connections.
 
-2.2 Switches
+**Switches**
+
 The Cisco Catalyst 2960-L was chosen for its reliability, cost-effectiveness, and efficient Layer 2 switching, making it ideal for both distribution and access layers. It enables VLAN-based segmentation, reducing broadcast domains while ensuring secure and efficient traffic flow. At the distribution layer, it aggregates access layer traffic, while at the access layer, it connects end-user devices like desktops, laptops, and wireless access points. With QoS for prioritising critical traffic and security features like port security, DHCP snooping, and 802.1X authentication.
 
-2.3 Wireless Access Point
+**Wireless Access Point**
+
 Access points are installed across the office to provide reliable Wi-Fi, allowing employees to move freely and work from their laptops without being tied to a wired connection.
 
-2.4 Servers
+**Servers**
+
 To meet the company's needs, we've set up six servers, each dedicated to a specific function: email, DHCP and DNS, file sharing, the company profile website, an internal web app, and authentication (AAA server).
 
-3 Cabling and Connectivity Standards
+### 2 Cabling and Connectivity Standards ###
+
 The network follows structured cabling and connectivity standards to ensure reliable and high-speed communication.
+    * Distribution to Access Switches: Fibre optic cabling is recommended for real-world deployment, but UTP straight-through cables are used in Cisco Packet Tracer simulations
 
-Distribution to Access Switches: Fibre optic cabling is recommended for real-world deployment, but UTP straight-through cables are used in Cisco Packet Tracer simulations
+    * Access Switch to End-User Devices: Cat 6 UTP cables provide stable and high-performance wired connectivity.
 
-Access Switch to End-User Devices: Cat 6 UTP cables provide stable and high-performance wired connectivity.
-
-Access Points: Operate in full-duplex mode, ensuring efficient and uninterrupted wireless communication throughout the office.
+    * Access Points: Operate in full-duplex mode, ensuring efficient and uninterrupted wireless communication throughout the office.
 
 Note: The DMZ switch is directly connected to the main router, bypassing the backbone switch to ensure traffic separation. This design enhances bandwidth and throughput by isolating internal network traffic from the DMZ, which is accessible from both internal users and external sources, including the internet.
 
-4 Internet Gateway and Perimeter Security
+### 4 Internet Gateway and Perimeter Security ###
+
 To ensure secure and efficient network communication, the internet gateway and perimeter security are managed through the router. The following techniques are deployed:
 
-NAT: Translates internal addresses to public IPs for internet access.
+    * NAT: Translates internal addresses to public IPs for internet access.
 
-Zone-Based Firewall (ZPF): Controls and filters traffic based on security policies.
+    * Zone-Based Firewall (ZPF): Controls and filters traffic based on security policies.
 
-Access Control Lists (ACLs): Restricts and manages traffic flow for added security.
+    * Access Control Lists (ACLs): Restrict and manage traffic flow for added security.
 
-Routing: Configured to enable seamless inter-VLAN communication and efficient traffic management.
+    * Routing: Configured to enable seamless inter-VLAN communication and efficient traffic management.
 
-IPSec VPN: Provides a secure, encrypted connection between the main office and branch office for protected data transmission.
+    * IPSec VPN: Provides a secure, encrypted connection between the main office and branch office for protected data transmission.
 
-5 Network Segmentation and Zoning
+### 5 Network Segmentation and Zoning ###
+
 To enforce segmentation and limit lateral movement, the network is structured into logical zones and physical boundaries. These zones define different levels of trust and apply strict access controls to ensure security.
 
 Zones of Trust:
 
-a. Untrusted Zone (Internet)
+1. Untrusted Zone (Internet)
+   All external traffic enters here.
+   Strict Zone-Based Firewall (ZPF) policies block unauthorised access to internal resources.
 
-All external traffic enters here.
+2. Semi-Trusted Zone
+   Demilitarised Zone (DMZ) – Isolates externally accessible services from the internal network.
 
-Strict Zone-Based Firewall (ZPF) policies block unauthorised access to internal resources.
+3. Trusted Zones
+   Internal Departments – Segmented using VLANs and ACLs to control access between departments.
+   Server Zone – Protected through micro-segmentation with ACLs to restrict lateral movement.
 
-b. Semi-Trusted Zone
-
-Demilitarised Zone (DMZ) – Isolates externally accessible services from the internal network.
-
-c. Trusted Zones
-
-Internal Departments – Segmented using VLANs and ACLs to control access between departments.
-
-Server Zone – Protected through micro-segmentation with ACLs to restrict lateral movement.
-
-d. Management Zone
-
-Dedicated VLAN 99 for secure network device administration.
-
-Accessible only via SSH and TACACS+ to authorised personnel.
-
-This structured segmentation model strengthens security by containing threats, controlling access, and ensuring efficient network management.
+4. Management Zone
+   Dedicated VLAN 99 for secure network device administration.
+   Accessible only via SSH and TACACS+ to authorised personnel.
+   This structured segmentation model strengthens security by containing threats, controlling access, and ensuring efficient network management.

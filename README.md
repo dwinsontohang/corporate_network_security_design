@@ -6,7 +6,9 @@ The infrastructure is validated through testing and verification of firewall rul
 
 ## Network Architecture & Infrastructure Design ##
 ### 1 Network Design ###
+
 **Physical Infrastructure**
+
 The physical infrastructure is structured around a two-tier hierarchical model comprising the Distribution and Access layers, ensuring modularity, scalability, and redundancy for seamless network performance and future expansion.
 
 a. Distribution Layer

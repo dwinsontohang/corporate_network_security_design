@@ -130,17 +130,17 @@ To enforce segmentation and limit lateral movement, the network is structured in
 Zones of Trust:
 
 1. Untrusted Zone (Internet)
-   All external traffic enters here.
-   Strict Zone-Based Firewall (ZPF) policies block unauthorised access to internal resources.
+   * All external traffic enters here.
+   * Strict Zone-Based Firewall (ZPF) policies block unauthorised access to internal resources.
 
 2. Semi-Trusted Zone
-   Demilitarised Zone (DMZ) – Isolates externally accessible services from the internal network.
+   * Demilitarised Zone (DMZ) – Isolates externally accessible services from the internal network.
 
 3. Trusted Zones
-   Internal Departments – Segmented using VLANs and ACLs to control access between departments.
-   Server Zone – Protected through micro-segmentation with ACLs to restrict lateral movement.
+   * Internal Departments – Segmented using VLANs and ACLs to control access between departments.
+   * Server Zone – Protected through micro-segmentation with ACLs to restrict lateral movement.
 
 4. Management Zone
-   Dedicated VLAN 99 for secure network device administration.
-   Accessible only via SSH and TACACS+ to authorised personnel.
+   * Dedicated VLAN 99 for secure network device administration.
+   * Accessible only via SSH and TACACS+ to authorised personnel.
    This structured segmentation model strengthens security by containing threats, controlling access, and ensuring efficient network management.

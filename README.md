@@ -16,9 +16,9 @@ At the core of the network, the Distribution Layer serves as the aggregation poi
 
 2. Access Layer
 The Access Layer is designed to provide connectivity for end-user devices, ensuring efficient and reliable access to network resources. Each floor is equipped with Cisco Catalyst 2960 Switches, which serve as the primary connection point for:
-* End-user devices such as desktops and laptops
-* Wireless Access Points to provide seamless Wi-Fi coverage
-* Departmental segmentation, ensuring localised traffic management and reduced congestion
+    * End-user devices such as desktops and laptops
+    * Wireless Access Points to provide seamless Wi-Fi coverage
+    * Departmental segmentation, ensuring localised traffic management and reduced congestion
 
 Adopting a hierarchical network design brings several important advantages. By segmenting traffic, it helps to minimise congestion and ensure a smoother flow of data across the network. The structured approach makes troubleshooting and maintenance far more straightforward, allowing for quicker fault isolation and easier diagnostics. Security is also significantly improved, as VLAN segmentation at the distribution layer reduces the risk of unauthorised access while enabling more effective policy enforcement. Moreover, the modular nature of this design ensures the network can scale effortlessly, allowing for future expansion without the need for major infrastructure changes.
 

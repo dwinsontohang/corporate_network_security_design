@@ -1,5 +1,8 @@
-Network Architecture & Infrastructure Design
-1 Network Design
+
+
+
+## Network Architecture & Infrastructure Design ##
+### 1 Network Design ###
 1.1 Physical Infrastructure
 The physical infrastructure is structured around a two-tier hierarchical model comprising the Distribution and Access layers, ensuring modularity, scalability, and redundancy for seamless network performance and future expansion.
 

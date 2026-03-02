@@ -1,1 +1,6 @@
-# corporate_network_security_design
+A well-structured network is critical for ensuring efficient data flow, segmentation, and security while supporting business operations. This corporate network security project report details the design, implementation, and security configurations of a scalable network infrastructure, incorporating best practices in routing, VLAN segmentation, and access control.
+The network follows a hierarchical architecture, with VLANs ensuring logical segmentation and OSPF routing optimising data flow. DHCP relay, NAT, and static routing are implemented to facilitate communication between internal and external networks. Trunking and port security are enforced at the switch level to prevent unauthorised access.
+Security is addressed through Zone-Based Firewall (ZPF), Access Control Lists (ACLs), and AAA authentication (TACACS+), which regulate traffic between security zones and enforce access policies. IPsec VPN tunnels provide secure remote connectivity, allowing encrypted communication between branch and main offices.
+The infrastructure is validated through testing and verification of firewall rules, routing protocols, and network policies, ensuring compliance with security standards. This design ensures a resilient, scalable, and cyber-secure network capable of supporting long-term business growth.
+
+*Network Architecture & Infrastructure Design*

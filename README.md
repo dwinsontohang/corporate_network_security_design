@@ -26,48 +26,55 @@ Adopting a hierarchical network design brings several important advantages. By s
 
 To enhance security and performance, the network is segmented into VLANs, each serving a specific function:
 
-a. Departmental VLANs
+1. Departmental VLANs
 
 Each department operates within a dedicated VLAN, preventing unnecessary broadcast traffic and ensuring efficient resource allocation:
 
-Sales & Marketing – 30 users
+    * Sales & Marketing – 30 users
 
-Development – 50 users
+    * Development – 50 users
 
-IT – 20 users
+    * IT – 20 users
 
-HR – 25 users
+    * HR – 25 users
 
-Finance – 25 users
+    * Finance – 25 users
 
-b. Functional VLANs
+2. Functional VLANs
 
 In addition to departmental segmentation, key operational areas have dedicated VLANs to streamline performance and security:
 
-Server VLAN – Hosts critical infrastructure such as File, Web, DHCP, and AAA servers.
+    * Server VLAN – Hosts critical infrastructure such as File, Web, DHCP, and AAA servers.
 
-Demilitarised Zone (DMZ) – Isolates external-facing services like the company's web and email servers, providing an additional security layer.
+    * Demilitarised Zone (DMZ) – Isolates external-facing services like the company's web and email servers, providing an additional security layer.
 
-Management VLAN – Reserved exclusively for IT administrators to manage network devices securely.
+    * Management VLAN – Reserved exclusively for IT administrators to manage network devices securely.
 
-Figure 1. Network infrastructure and architecture diagram
+**Network infrastructure and architecture diagram**
+<img width="993" height="583" alt="image" src="https://github.com/user-attachments/assets/5b1307e0-f152-427c-b324-ae04402db13e" />
+
+**Logical Topology**
+<img width="1147" height="684" alt="image" src="https://github.com/user-attachments/assets/5b98a6ee-0614-4cf3-bb49-76814152e598" />
 
 A star topology provides a centralised approach to network management, allowing for improved traffic flow, simplified troubleshooting, and reduced network downtime. The use of VLAN segmentation ensures that traffic remains isolated where necessary, strengthening security, reducing congestion, and optimising resource allocation. This structured design allows for seamless scalability, enabling the network to adapt effortlessly to future growth and technological advancements.
 
-1.3 Subnetting
+**Subnetting**
+
 To ensure efficient network segmentation, enhance security, and optimise resource allocation, the 172.16.10.0/24 network has been divided into distinct subnets based on departmental functions and operational needs. Each subnet is assigned a specific IP range to accommodate the required number of devices while minimising wasted address space. This structured approach ensures efficient address management, improved performance, and scalability for future expansion.
 
-No	Department / Function	VLAN	Total Devices	Network Address	Subnet Mask	Broadcast Address	Usable IP Range
-1	Sales & Marketing	10	30	172.16.10.64/27	255.255.255.224	172.16.10.95	172.16.10.65 - 172.16.10.94
-2	Development	20	50	172.16.10.0/26	255.255.255.192	172.16.10.63	172.16.10.1 - 172.16.10.62
-3	IT	30	20	172.16.10.160/27	255.255.255.224	172.16.10.191	172.16.10.161 - 172.16.10.190
-4	Human Resource	40	25	172.16.10.96/27	255.255.255.224	172.16.10.127	172.16.10.97 - 172.16.10.126
-5	Finance	50	25	172.16.10.128/27	255.255.255.224	172.16.10.159	172.16.10.129 - 172.16.10.158
-6	Conference Room	60	6	172.16.10.224/29	255.255.255.248	172.16.10.231	172.16.10.225 - 172.16.10.230
-7	Server Network	70	5	172.16.10.192/28	255.255.255.240	172.16.10.207	172.16.10.193 - 172.16.10.206
-8	Management Network	99	10	172.16.10.208/28	255.255.255.240	172.16.10.223	172.16.10.209 - 172.16.10.222
-9	DMZ	-	-	172.16.10.232/29	255.255.255.248	172.16.10.239	172.16.10.233 - 172.16.10.238
-Table 1. Subnetting for IP allocation
+**Subnetting for IP allocation**
+
+| No | Department / Function | VLAN | Total Devices | Network Address | Subnet Mask | Broadcast Address | Usable IP Range |
+|----|----------------------|------|---------------|-----------------|-------------|-------------------|-----------------|
+| 1 | Sales & Marketing | 10 | 30 | 172.16.10.64/27 | 255.255.255.224 | 172.16.10.95 | 172.16.10.65 - 172.16.10.94 |
+| 2 | Development | 20 | 50 | 172.16.10.0/26 | 255.255.255.192 | 172.16.10.63 | 172.16.10.1 - 172.16.10.62 |
+| 3 | IT | 30 | 20 | 172.16.10.160/27 | 255.255.255.224 | 172.16.10.191 | 172.16.10.161 - 172.16.10.190 |
+| 4 | Human Resource | 40 | 25 | 172.16.10.96/27 | 255.255.255.224 | 172.16.10.127 | 172.16.10.97 - 172.16.10.126 |
+| 5 | Finance | 50 | 25 | 172.16.10.128/27 | 255.255.255.224 | 172.16.10.159 | 172.16.10.129 - 172.16.10.158 |
+| 6 | Conference Room | 60 | 6 | 172.16.10.224/29 | 255.255.255.248 | 172.16.10.231 | 172.16.10.225 - 172.16.10.230 |
+| 7 | Server Network | 70 | 5 | 172.16.10.192/28 | 255.255.255.240 | 172.16.10.207 | 172.16.10.193 - 172.16.10.206 |
+| 8 | Management Network | 99 | 10 | 172.16.10.208/28 | 255.255.255.240 | 172.16.10.223 | 172.16.10.209 - 172.16.10.222 |
+| 9 | DMZ | - | - | 172.16.10.232/29 | 255.255.255.248 | 172.16.10.239 | 172.16.10.233 - 172.16.10.238 |
 
 A well-structured IP addressing scheme optimises address space while ensuring network performance, security, and scalability. Subnets are allocated based on departmental needs, enabling efficient resource distribution. VLANs and subnet segmentation minimise broadcast traffic, enhance security by isolating sensitive data, and simplify management. Dedicated subnets for the DMZ and server network keep external traffic separate, while a management network ensures secure device administration.
 

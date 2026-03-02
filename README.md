@@ -46,11 +46,11 @@ To enhance security and performance, the network is segmented into VLANs, each s
 
     * Demilitarised Zone (DMZ) – Isolates external-facing services like the company's web and email servers, providing an additional security layer.
 
-    * Management VLAN – Reserved exclusively for IT administrators to manage network devices securely.
+    * Management VLAN – Reserved exclusively for IT administrators to manage network devices securely.  
 
 
 **Network infrastructure and architecture diagram**
-<img width="993" height="583" alt="image" src="https://github.com/user-attachments/assets/5b1307e0-f152-427c-b324-ae04402db13e" />
+<img width="993" height="583" alt="image" src="https://github.com/user-attachments/assets/5b1307e0-f152-427c-b324-ae04402db13e" />  
 
 
 **Logical Topology**
@@ -60,7 +60,7 @@ A star topology provides a centralised approach to network management, allowing 
 
 **Subnetting**
 
-To ensure efficient network segmentation, enhance security, and optimise resource allocation, the 172.16.10.0/24 network has been divided into distinct subnets based on departmental functions and operational needs. Each subnet is assigned a specific IP range to accommodate the required number of devices while minimising wasted address space. This structured approach ensures efficient address management, improved performance, and scalability for future expansion.
+To ensure efficient network segmentation, enhance security, and optimise resource allocation, the 172.16.10.0/24 network has been divided into distinct subnets based on departmental functions and operational needs. Each subnet is assigned a specific IP range to accommodate the required number of devices while minimising wasted address space. This structured approach ensures efficient address management, improved performance, and scalability for future expansion.  
 
 
 **Subnetting for IP allocation**
@@ -77,7 +77,7 @@ To ensure efficient network segmentation, enhance security, and optimise resourc
 | 8 | Management Network | 99 | 10 | 172.16.10.208/28 | 255.255.255.240 | 172.16.10.223 | 172.16.10.209 - 172.16.10.222 |
 | 9 | DMZ | - | - | 172.16.10.232/29 | 255.255.255.248 | 172.16.10.239 | 172.16.10.233 - 172.16.10.238 |
 
-A well-structured IP addressing scheme optimises address space while ensuring network performance, security, and scalability. Subnets are allocated based on departmental needs, enabling efficient resource distribution. VLANs and subnet segmentation minimise broadcast traffic, enhance security by isolating sensitive data, and simplify management. Dedicated subnets for the DMZ and server network keep external traffic separate, while a management network ensures secure device administration.
+A well-structured IP addressing scheme optimises address space while ensuring network performance, security, and scalability. Subnets are allocated based on departmental needs, enabling efficient resource distribution. VLANs and subnet segmentation minimise broadcast traffic, enhance security by isolating sensitive data, and simplify management. Dedicated subnets for the DMZ and server network keep external traffic separate, while a management network ensures secure device administration.  
 
 
 ### 2 Equipment Selection and Placement ###
@@ -101,11 +101,12 @@ To meet the company's needs, we've set up six servers, each dedicated to a speci
 ### 2 Cabling and Connectivity Standards ###
 
 The network follows structured cabling and connectivity standards to ensure reliable and high-speed communication.
-    * Distribution to Access Switches: Fibre optic cabling is recommended for real-world deployment, but UTP straight-through cables are used in Cisco Packet Tracer simulations
 
-    * Access Switch to End-User Devices: Cat 6 UTP cables provide stable and high-performance wired connectivity.
+* Distribution to Access Switches: Fibre optic cabling is recommended for real-world deployment, but UTP straight-through cables are used in Cisco Packet Tracer simulations
 
-    * Access Points: Operate in full-duplex mode, ensuring efficient and uninterrupted wireless communication throughout the office.
+* Access Switch to End-User Devices: Cat 6 UTP cables provide stable and high-performance wired connectivity.
+
+* Access Points: Operate in full-duplex mode, ensuring efficient and uninterrupted wireless communication throughout the office.
 
 Note: The DMZ switch is directly connected to the main router, bypassing the backbone switch to ensure traffic separation. This design enhances bandwidth and throughput by isolating internal network traffic from the DMZ, which is accessible from both internal users and external sources, including the internet.
 
@@ -113,15 +114,15 @@ Note: The DMZ switch is directly connected to the main router, bypassing the bac
 
 To ensure secure and efficient network communication, the internet gateway and perimeter security are managed through the router. The following techniques are deployed:
 
-    * NAT: Translates internal addresses to public IPs for internet access.
+* NAT: Translates internal addresses to public IPs for internet access.
 
-    * Zone-Based Firewall (ZPF): Controls and filters traffic based on security policies.
+* Zone-Based Firewall (ZPF): Controls and filters traffic based on security policies.
 
-    * Access Control Lists (ACLs): Restrict and manage traffic flow for added security.
+* Access Control Lists (ACLs): Restrict and manage traffic flow for added security.
 
-    * Routing: Configured to enable seamless inter-VLAN communication and efficient traffic management.
+* Routing: Configured to enable seamless inter-VLAN communication and efficient traffic management.
 
-    * IPSec VPN: Provides a secure, encrypted connection between the main office and branch office for protected data transmission.
+* IPSec VPN: Provides a secure, encrypted connection between the main office and branch office for protected data transmission.
 
 ### 5 Network Segmentation and Zoning ###
 
@@ -130,17 +131,25 @@ To enforce segmentation and limit lateral movement, the network is structured in
 Zones of Trust:
 
 1. Untrusted Zone (Internet)
+   
    * All external traffic enters here.
+     
    * Strict Zone-Based Firewall (ZPF) policies block unauthorised access to internal resources.
 
-2. Semi-Trusted Zone
+3. Semi-Trusted Zone
+   
    * Demilitarised Zone (DMZ) – Isolates externally accessible services from the internal network.
 
-3. Trusted Zones
+5. Trusted Zones
+   
    * Internal Departments – Segmented using VLANs and ACLs to control access between departments.
+     
    * Server Zone – Protected through micro-segmentation with ACLs to restrict lateral movement.
 
-4. Management Zone
+7. Management Zone
+   
    * Dedicated VLAN 99 for secure network device administration.
+     
    * Accessible only via SSH and TACACS+ to authorised personnel.
-   This structured segmentation model strengthens security by containing threats, controlling access, and ensuring efficient network management.
+
+This structured segmentation model strengthens security by containing threats, controlling access, and ensuring efficient network management.

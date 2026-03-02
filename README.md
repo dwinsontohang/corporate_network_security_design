@@ -108,7 +108,7 @@ The network follows structured cabling and connectivity standards to ensure reli
 
 * Access Points: Operate in full-duplex mode, ensuring efficient and uninterrupted wireless communication throughout the office.
 
-Note: The DMZ switch is directly connected to the main router, bypassing the backbone switch to ensure traffic separation. This design enhances bandwidth and throughput by isolating internal network traffic from the DMZ, which is accessible from both internal users and external sources, including the internet.
+**Note**: The DMZ switch is directly connected to the main router, bypassing the backbone switch to ensure traffic separation. This design enhances bandwidth and throughput by isolating internal network traffic from the DMZ, which is accessible from both internal users and external sources, including the internet.
 
 ### 4 Internet Gateway and Perimeter Security ###
 
